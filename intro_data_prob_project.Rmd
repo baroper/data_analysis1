@@ -1,0 +1,68 @@
+---
+title: "Exploring the BRFSS data"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+---
+
+## Setup
+
+### Load packages
+
+```{r load-packages, message = FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+### Load data
+
+```{r load-data}
+load("brfss2013.RData")
+```
+
+
+
+* * *
+
+## Part 1: Data
+The observations in the data set are collected using a random telephone survey across all states in the US, and certain territories. Due to the scope of the sample we are able to make generalizations for the entire population, but we cannot establish causality among variables.
+
+* * *
+
+## Part 2: Research questions
+
+**Research question 1:** Are people in Alabama more likely to smoke than people in Mississippi?
+
+**Research question 2:** Are people who were anxious in the past 30 days more likely to eat fruits or vegetables?
+
+**Research question 3:** What proportion of males could not afford medicine nor afford to see a doctor?
+
+
+* * *
+
+## Part 3: Exploratory data analysis
+
+**Research quesion 1:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 2:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 3:**
+
+```{r}
+
+```
+
