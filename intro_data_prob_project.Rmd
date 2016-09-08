@@ -59,6 +59,12 @@ mialfiltersd = rbind(filteralabamasd,filtermissisd)
 ggplot(data=mialfiltersd,aes(x=(smokday2),fill=X_state)) + geom_bar(position = "dodge") + xlab("How often respondents smoked in the past 30 days") + ggtitle("Smoking habits in Alabama and Mississippi")
 ```
 
+As the graph suggests, people in Mississippi are more likely to smoke daily than those in Alabama. Accordingly, people in Alabama are more likely to not smoke at all.
+
+```{r}
+
+```
+
 
 
 **Research question 2:**
@@ -72,6 +78,12 @@ ggplot(data=mialfiltersd,aes(x=(smokday2),fill=X_state)) + geom_bar(position = "
 **Research question 3:**
 
 ```{r}
-
+affmeds = brfss2013[,c("sex","medscost")]
+maleaffmeds = affmeds[affmeds$sex == "Male",]
+maleaffmedsyes = maleaffmeds[maleaffmeds$medscost == "Yes",]
+filtermaleaffmedsy = na.omit(maleaffmedsyes)
+filtermaleaffmeds = na.omit(maleaffmeds)
+count(filtermaleaffmedsy)/count(filtermaleaffmeds)
+ggplot(filtermaleaffmeds, aes(x=filtermaleaffmeds$medscost)) + geom_bar(position = "dodge") + xlab("Could not get medicine due to cost") + ggtitle("Males nationwide who couldn't afford medication due to cost")
 ```
 
