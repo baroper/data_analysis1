@@ -34,7 +34,9 @@ The observations in the data set are collected using a random telephone survey a
 
 ## Part 2: Research questions
 
-**Research question 1:** Are people in Alabama more likely to smoke daily than people in Mississippi?
+**Research question 1:** How do the smoking habits of residents of Alabama compare to those of people in Mississippi?
+
+I am interested in how states that are very similar might differ in smoking habits. It's interesting to consider how states that are so similar might differ on habits like these.
 
 **Research question 2:** Are people who were anxious in the past 30 days more likely to eat fruits or vegetables?
 
@@ -48,7 +50,13 @@ The observations in the data set are collected using a random telephone survey a
 **Research question 1:**
 
 ```{r}
-
+smokdaydata = brfss2013[,c("smokday2","X_state")]
+alabamasmokdaydata = smokdaydata[smokdaydata$X_state == "Alabama",]
+filteralabamasd = na.omit(alabamasmokdaydata)
+mississippismokdaydata = smokdaydata[smokdaydata$X_state == "Mississippi",]
+filtermissisd = na.omit(mississippismokdaydata)
+mialfiltersd = rbind(filteralabamasd,filtermissisd)
+ggplot(data=mialfiltersd,aes(x=(smokday2),fill=X_state)) + geom_bar(position = "dodge") + xlab("How often respondents smoked in the past 30 days") + ggtitle("Smoking habits in Alabama and Mississippi")
 ```
 
 
